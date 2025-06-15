@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Chats</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0d0d;
+      padding: 20px;
+      color: #e0e0e0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .chat {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      border: 1px solid white;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .chat:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .chat h4 {
+      font-size: 16px;
+      color: #5ab0f7;
+      margin-bottom: 6px;
+    }
+
+    .chat .msg h5 {
+      font-size: 18px;
+      color: #f0f0f0;
+      margin-bottom: 10px;
+    }
+
+    .chat h6 {
+      font-size: 13px;
+      color: #888888;
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .chat button,
+    .top-button {
+      background-color: #222;
+      color: #f0f0f0;
+      border: 1px solid #444;
+      padding: 8px 14px;
+      margin: 5px 5px 0 0;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .chat button:hover,
+    .top-button:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
+
+    .chat button a,
+    .top-button a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-button {
+      display: block;
+      width: max-content;
+      margin: 0 auto 20px auto;
+    }
+
+    form {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+  <h2>All Chats</h2>
+
+  <button class="top-button"><a href="/chats/new">New Chat</a></button>
+
+  <div class="container">
+    <% for(chat of chats){ %>
+      <div class="chat">
+        <h4>From: <%= chat.from %></h4>
+        <div class="msg">
+          <h5>Message: <%= chat.msg %></h5>
+        </div>
+        <h4>To: <%= chat.to %></h4>
+        <h6>Created_At: <%= chat.created_at %></h6>
+
+        <button><a href="/chats/<%= chat.id %>/edit">Edit</a></button>
+        <form action="/chats/<%= chat.id %>/delete?_method=DELETE" method="post">
+          <button>Delete</button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
