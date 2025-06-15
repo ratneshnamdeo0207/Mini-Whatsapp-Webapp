@@ -4,11 +4,11 @@ This is a simple chat application inspired by WhatsApp, built using **Node.js**,
 
 ## 📸 Screenshots
 
-> 📌 _Upload your screenshots and save them in the `public/screenshots/` folder. Example:_
+![All Chats Page](Homepge.png)  
 
-![All Chats Page](Home (3).png)  
-![New Chat Form](New Chat.png)  
-![Edit Chat Page](Edit Page (2).png)  
+![New Chat Form](Edit-pge.png)  
+
+![Edit Chat Page](new-chat-pg.png)    
 
 ---
 
